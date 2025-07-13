@@ -15,11 +15,10 @@ const Header = () => {
           <NavLink to="/recipes">Recipes</NavLink>
           <NavLink to="/user">User</NavLink>
           <NavLink to="/posts">Posts</NavLink>
+          <NavLink to="/wishlist">Wishlist</NavLink>
         </div>
-        <div></div>
       </div>
     </div>
   );
 };
-
 export default React.memo(Header);

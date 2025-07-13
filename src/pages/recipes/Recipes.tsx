@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { IRecipes } from "../../types";
+import { Recipes as IRecipes, Recipe } from "../../types";
 import { api } from "../../api";
+import RecipesCard from "../../components/RecipesCard/RecipesCard";
 
 const Recipes = () => {
-  const [data, setData] = useState<null | IRecipes[]>(null);
+  const [data, setData] = useState<Recipe[]>([]);
   const [error, setError] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
@@ -18,24 +19,10 @@ const Recipes = () => {
       .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, []);
-  
   return (
     <div>
-      <div className="container mx-auto grid grid-cols-4 gap-[20px]"> 
-        {
-          data?.map((item: IRecipes) => (
-            <div key={item.id}>
-              <div>
-                <img className="w-[200px]" src={item.image} alt="" />
-                <p>{item.name}</p>
-                <button className="bg-blue-500 p-[5px] w-full text-violet-50">buy</button>
-              </div>
 
-            </div>
-          ))
-        }
-      </div>
-
+      <RecipesCard data={data}/>
 
     </div>
   )

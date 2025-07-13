@@ -6,6 +6,7 @@ import Posts from './posts/Posts';
 import User from './user/User';
 import Recipes from './recipes/Recipes';
 import Card from './card/Card';
+import Wishlist from './wishlist/wishlist';
 
 const MainRouters = () => {
   return useRoutes([
@@ -35,7 +36,7 @@ const MainRouters = () => {
         },
           {
           path: "/wishlist",
-          element: <Card />,
+          element: <Wishlist />,
         },
       ],
     },
